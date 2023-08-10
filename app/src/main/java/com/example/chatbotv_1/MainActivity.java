@@ -77,10 +77,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void addResponse(String response){
+        messageList.remove(messageList.size()-1);
         addToChat(response,Message.SENT_BY_BOT);
     }
 
     void callAPI(String question){
+
+        messageList.add(new Message("Typing...",Message.SENT_BY_BOT));
 
         JSONObject jsonBody = new JSONObject();
         try {
